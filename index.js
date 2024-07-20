@@ -6,6 +6,7 @@ import 'dotenv/config'
 
 import authRoutes from './src/routers/authRoutes';
 import fileRoutes from './src/routers/fileRoutes';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use('/uploads', express.static('uploads'));
 
 app.use(`${api}/auth`, authRoutes);
 app.use(`${api}/files`, fileRoutes);
+app.use(cookieParser())
 
 mongoose
   .connect(process.env.MONGO_URI, {

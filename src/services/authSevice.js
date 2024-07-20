@@ -1,9 +1,8 @@
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
+
 import User from '../models/user';
 
 export const loginUser = async (username, password) => {
-    if (!email || !password) {
+    if (!username || !password) {
       throw new Error("Please Add Email OR Password");
     }
   
